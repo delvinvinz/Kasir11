@@ -15,6 +15,13 @@ class User extends Component
     public $password;
     public $penggunaTerpilih;
 
+    public function mount()
+    {
+        if(auth()->user()->peran != 'amdin'){
+            abort(403);
+        }
+    }
+    
     public function pilihEdit($id){
         $this->penggunaTerpilih = ModelUser::findOrFail($id);
         $this->nama = $this->penggunaTerpilih->name;
