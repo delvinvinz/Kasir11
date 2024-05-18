@@ -83,13 +83,13 @@
                             class="btn {{ request()->routeIs('home') ? 'btn-warning' : 'btn-outline-warning' }}">
                             Beranda
                           </a>
-                        @if (Auth::user(->peran=='admin'))
+                        @if (Auth::user()->peran == 'admin')
                             <a href="{{ route('user') }}" wire:navigate
                                 class="btn {{ request()->routeIs('user') ? 'btn-warning' : 'btn-outline-warning' }}">
                                 Pengguna
                             </a>
                         @endif
-                        @if (Auth::user(->peran=='admin'))
+                        @if (Auth::user()->peran == 'admin')
                             <a href="{{ route('transaksi') }}" wire:navigate
                                 class="btn {{ request()->routeIs('transaksi') ? 'btn-warning' : 'btn-outline-warning' }}">
                                 Transaksi
