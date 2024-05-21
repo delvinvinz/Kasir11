@@ -21,11 +21,11 @@ class Produk extends Component
 
     public function mount()
     {
-        if(auth()->user()->peran != 'amdin'){
+        if(auth()->user()->peran != 'admin'){
             abort(403);
         }
     }
-    
+
     public function imporExcel(){
         Excel::import(new ImporProduk, $this->fileExcel);
         $this->reset();
